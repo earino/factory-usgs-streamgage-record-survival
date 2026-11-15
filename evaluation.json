@@ -1,0 +1,85 @@
+{
+  "protocol": "Existing unmodified runner baseline on public validation only; no holdout scoring",
+  "rows": 448,
+  "metrics": {
+    "full_model": {
+      "auc": 0.7181944555831795,
+      "brier": 0.17094465093118094
+    },
+    "majority_prior": {
+      "auc": 0.5,
+      "brier": 0.18819661358878198
+    },
+    "calendar_identity": {
+      "auc": 0.5645200096238672,
+      "brier": 0.24113307202371798
+    }
+  },
+  "by_year": {
+    "2013": {
+      "rows": 117,
+      "positive_rate": 0.7008547008547008,
+      "metrics": {
+        "full_model": {
+          "auc": 0.7794425087108013,
+          "brier": 0.17041593385401238
+        },
+        "majority_prior": {
+          "auc": 0.5,
+          "brier": 0.20973383496962517
+        },
+        "calendar_identity": {
+          "auc": 0.46986062717770033,
+          "brier": 0.26879580239027534
+        }
+      }
+    },
+    "2014": {
+      "rows": 169,
+      "positive_rate": 0.7692307692307693,
+      "metrics": {
+        "full_model": {
+          "auc": 0.6794871794871795,
+          "brier": 0.17221521195150677
+        },
+        "majority_prior": {
+          "auc": 0.5,
+          "brier": 0.1810708563476638
+        },
+        "calendar_identity": {
+          "auc": 0.5505917159763314,
+          "brier": 0.24007692470099637
+        }
+      }
+    },
+    "2015": {
+      "rows": 162,
+      "positive_rate": 0.7716049382716049,
+      "metrics": {
+        "full_model": {
+          "auc": 0.704972972972973,
+          "brier": 0.17000104034842567
+        },
+        "majority_prior": {
+          "auc": 0.5,
+          "brier": 0.18007561403440123
+        },
+        "calendar_identity": {
+          "auc": 0.6561081081081082,
+          "brier": 0.22225621674379667
+        }
+      }
+    }
+  },
+  "majority_accuracy": 0.7522321428571429,
+  "calendar_identity_unseen_rows": 91,
+  "persistence": "Not applicable; see construction notes",
+  "limitations": [
+    "No uncertainty interval; observed differences do not establish universal headroom"
+  ],
+  "runner_files": {
+    "train.py": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8",
+    "validate.py": "b597e7f84fed614e64b4a86fbecbd6ec0145916a24d0d221a796586976418e7b",
+    "validate.sh": "3f06ca48f11c2e05d331b4d8394284925de660c1d4b086d2f8243959e83b7e6d"
+  }
+}

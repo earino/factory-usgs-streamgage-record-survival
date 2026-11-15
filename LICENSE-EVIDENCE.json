@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "terms_url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+  "terms_sha256": "8bf347d2a7299ec4f1023548349a9dc1237857c96cca43b1dcc06a8eaf9a6178",
+  "documentation_url": "https://api.waterdata.usgs.gov/docs/ogcapi/",
+  "documentation_sha256": "ce0b32a5201670b8769053d9c8bcac91809251ea266462ca444aa5b24ab0c8b9",
+  "quoted_excerpt": "USGS-authored or produced data and information are considered to be in the U.S. Public Domain.",
+  "excerpt_found": true,
+  "excerpt_match": "contiguous",
+  "scope": "Captured publisher bytes and quote presence; semantic applicability reviewed separately"
+}

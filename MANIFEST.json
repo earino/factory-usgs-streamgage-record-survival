@@ -1,0 +1,392 @@
+{
+  "schema": "factory-1",
+  "dataset": "usgs-streamgage-record-survival",
+  "version": "v-75d63061fc7d7395",
+  "artifact_version": "be72de55eb39dc02a4465ad1a926ab93deb921b7c5431f21d9bbb166ded7998a",
+  "assets": {
+    "LICENSE-EVIDENCE.json": {
+      "sha256": "3205f6a1f650fb1838425b79b32a9dd80ed1bdc82327b82fc609f5e4991673fd",
+      "bytes": 645,
+      "asset_name": "LICENSE-EVIDENCE.json"
+    },
+    "LICENSE.md": {
+      "sha256": "fdf2bf670f587c2c8bf3ececfd635a243ee3caf24ad86ae7b62d99b32fddfa92",
+      "bytes": 1214,
+      "asset_name": "LICENSE.md"
+    },
+    "README.md": {
+      "sha256": "b470288b9a10d7fe2161122d6260c6ceaf19ed9dc9ca18811a8b0049e01add50",
+      "bytes": 5481,
+      "asset_name": "README.md"
+    },
+    "SOURCES.json": {
+      "sha256": "cedc0a0f716023a2e13c05698885b83badeb37a10ef4ff76a4adb71639c762ef",
+      "bytes": 9318,
+      "asset_name": "SOURCES.json"
+    },
+    "evaluation.json": {
+      "sha256": "7a28a4dde083ac0fbd504654c6a90a6b2ff03d08dc3e7b1bf13c76af69d38011",
+      "bytes": 2284,
+      "asset_name": "evaluation.json"
+    },
+    "extract/meta.json": {
+      "sha256": "26a4119668cddf8bc407b4a3bd67b7d28196d1e037de445d34ecdb9b6ee1b4e7",
+      "bytes": 1629,
+      "asset_name": "extract__meta.json"
+    },
+    "extract/private/holdout.csv": {
+      "sha256": "cfcb9d6fee9f84ec36c395e6204272366748a04b1ba2de8741493bbeb0eca341",
+      "bytes": 45641,
+      "asset_name": "extract__private__holdout.csv"
+    },
+    "extract/public/eval.csv": {
+      "sha256": "5300aac135acbf6e82df95779c256f1a9978ec0196db5d7008d3564ebdd9c88b",
+      "bytes": 35781,
+      "asset_name": "extract__public__eval.csv"
+    },
+    "extract/public/train.csv": {
+      "sha256": "6fad0998ea8a4323e1ee8bc4a4ac946934d464f4c341df0558c8816c4b66bf38",
+      "bytes": 171103,
+      "asset_name": "extract__public__train.csv"
+    },
+    "extract/quality.json": {
+      "sha256": "648b8cbb1e6a6f445f3f7180eed4fac03731a3a4b8456c7ff7416a65967b76a8",
+      "bytes": 33238,
+      "asset_name": "extract__quality.json"
+    },
+    "get_dataset.py": {
+      "sha256": "fad89222d50f9d9709225c34909be74c591df409c08b8b5951eba9d3cadfdd48",
+      "bytes": 3680,
+      "asset_name": "get_dataset.py"
+    },
+    "qualification.json": {
+      "sha256": "8a9ea935e16e46fdfdd83f4bc85dd300ba00eb485f35c0e0b288556b77d66cc3",
+      "bytes": 17933,
+      "asset_name": "qualification.json"
+    },
+    "reproduction/LICENSE-CC0-1.0.txt": {
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "bytes": 7048,
+      "asset_name": "reproduction__LICENSE-CC0-1.0.txt"
+    },
+    "reproduction/LICENSE-MIT.txt": {
+      "sha256": "56b932ff064e5da113ae10175c8546325f64f26e1ece71683ffcbf8b2304fe1c",
+      "bytes": 1124,
+      "asset_name": "reproduction__LICENSE-MIT.txt"
+    },
+    "reproduction/artifact_scrub.py": {
+      "sha256": "8c663253e691a7b8751f9c853b40a3752a833360caafb1ea8e8f534e64af4b68",
+      "bytes": 11369,
+      "asset_name": "reproduction__artifact_scrub.py"
+    },
+    "reproduction/build.py": {
+      "sha256": "bd04a17f6cd640ffa27aa9869092903baf129f8588493f9a608f4707583c9b02",
+      "bytes": 39432,
+      "asset_name": "reproduction__build.py"
+    },
+    "reproduction/construction.json": {
+      "sha256": "9bd0513392b68244542f2ed821e60e90c774f061a0388df4f94b3342bf467dbd",
+      "bytes": 37001,
+      "asset_name": "reproduction__construction.json"
+    },
+    "reproduction/dataset_package.py": {
+      "sha256": "c2364defe58dcc99322be59a1bb04894ce00e823ce37afeb37bc31012f744327",
+      "bytes": 7927,
+      "asset_name": "reproduction__dataset_package.py"
+    },
+    "reproduction/dataset_run.py": {
+      "sha256": "8085fae14d6e93b852e692e18c1ef72113a3601f48f78901b6d1ae6db278de57",
+      "bytes": 12381,
+      "asset_name": "reproduction__dataset_run.py"
+    },
+    "reproduction/get_dataset.py": {
+      "sha256": "fad89222d50f9d9709225c34909be74c591df409c08b8b5951eba9d3cadfdd48",
+      "bytes": 3680,
+      "asset_name": "reproduction__get_dataset.py"
+    },
+    "reproduction/leakage_battery.py": {
+      "sha256": "adbf7ee0aca0012b78cc1f1e4aeb968a23717cae30f66a02e080215e75f830e3",
+      "bytes": 17379,
+      "asset_name": "reproduction__leakage_battery.py"
+    },
+    "reproduction/provenance.json": {
+      "sha256": "11a9c4f355a6345b1a64b1bb34afd669daa68a62b53b6635c45f9861295a81a7",
+      "bytes": 573,
+      "asset_name": "reproduction__provenance.json"
+    },
+    "reproduction/qualify_dataset.py": {
+      "sha256": "bff6d43d0904182e2612c32bab702e41addbf389904a236c209e78be39e37a6b",
+      "bytes": 66067,
+      "asset_name": "reproduction__qualify_dataset.py"
+    },
+    "reproduction/recovery_recipes.py": {
+      "sha256": "f64c542fcda232169c95ace17421b45275194b934938c0ea4c9b68e6f844ad0e",
+      "bytes": 17609,
+      "asset_name": "reproduction__recovery_recipes.py"
+    },
+    "reproduction/requirements.txt": {
+      "sha256": "5c72f3268174d20364624f76680e189c408a05dba2e7b8cfe12d077b3865e7f0",
+      "bytes": 160,
+      "asset_name": "reproduction__requirements.txt"
+    },
+    "reproduction/source.json": {
+      "sha256": "f3eac57bc97cce637f08b58b84e27cf87f7a2525e767dbdc97dd08ab9b67e48a",
+      "bytes": 19677,
+      "asset_name": "reproduction__source.json"
+    },
+    "reproduction/source_io.py": {
+      "sha256": "0c60eed4968cd342148efbaac7e4fa98f00708d8e6c14c0929928687b9af1ea3",
+      "bytes": 5607,
+      "asset_name": "reproduction__source_io.py"
+    },
+    "reproduction/train.py": {
+      "sha256": "a3c6bcf13735bc85c52129ded68f839090dffdc266ebc3810dc61b2e6ea5e7e8",
+      "bytes": 2500,
+      "asset_name": "reproduction__train.py"
+    },
+    "reproduction/validate.py": {
+      "sha256": "b597e7f84fed614e64b4a86fbecbd6ec0145916a24d0d221a796586976418e7b",
+      "bytes": 1277,
+      "asset_name": "reproduction__validate.py"
+    },
+    "reproduction/validate.sh": {
+      "sha256": "3f06ca48f11c2e05d331b4d8394284925de660c1d4b086d2f8243959e83b7e6d",
+      "bytes": 482,
+      "asset_name": "reproduction__validate.sh"
+    },
+    "source-checks.json": {
+      "sha256": "a6de343ccdcf162f0cac823166fe0bb3b6a5b1ea5539da0d3936f005dfddf31f",
+      "bytes": 9642,
+      "asset_name": "source-checks.json"
+    },
+    "source-snapshot.tar.gz": {
+      "sha256": "e91b25b99d7ea06190b17ded2c003bed60c1d9fbc1ff6bdc4534ca23027bbea3",
+      "bytes": 4561162,
+      "asset_name": "source-snapshot.tar.gz"
+    },
+    "verify_dataset.py": {
+      "sha256": "f4a4bb7f565cdbd075c520621f881876b491eaed91a5e6e70afb31e4753f9834",
+      "bytes": 1276,
+      "asset_name": "verify_dataset.py"
+    }
+  },
+  "source": {
+    "attribution": "Data compiled by the U.S. Geological Survey",
+    "citation": "U.S. Geological Survey, 2026, USGS water data for the Nation: U.S. Geological Survey National Water Information System database, accessed November 15, 2026, at https://doi.org/10.5066/F7P55KJN",
+    "documentation_url": "https://api.waterdata.usgs.gov/docs/ogcapi/",
+    "license": "U.S. public domain: government-work exclusion under 17 U.S.C. 105(a); USGS states its produced data are in the U.S. Public Domain. No upstream licence grant and no CC0 designation on this database record.",
+    "publisher": "U.S. Geological Survey (USGS), U.S. Department of the Interior",
+    "redistribution": true,
+    "terms_excerpt": "USGS-authored or produced data and information are considered to be in the U.S. Public Domain.",
+    "terms_url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+    "urls": [
+      "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?parameter_code=00060&data_type=Daily%20values&agency_code=USGS&begin=2001-01-01/2019-12-31&limit=1000&f=json",
+      "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?parameter_code=00060&statistic_id=00011&agency_code=USGS&limit=1000&f=json"
+    ]
+  },
+  "task": {
+    "decision_user": "USGS Water Science Center network managers and cooperating funders deciding whether to commit to a new gage past its initial term, and data users judging whether a young record is likely to become a multi-decade series suitable for trend or load analysis.",
+    "features": [
+      {
+        "availability": "site attribute carried on the current record; assumed to describe the site at establishment, but the value may have been entered or revised after the record opened, and nulls stay missing",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/queryables?f=json",
+        "meaning": "Basin area upstream of the gage in square miles.",
+        "name": "drainage_area"
+      },
+      {
+        "availability": "site attribute that is frequently null; assumed present at establishment where the publisher reports it, never filled with zero",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/queryables?f=json",
+        "meaning": "Contributing area in square miles when it differs from the total drainage area.",
+        "name": "contributing_drainage_area"
+      },
+      {
+        "availability": "site attribute that is null for some sites; assumed stable since establishment, current-vintage value",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/queryables?f=json",
+        "meaning": "Gage or land surface altitude in feet on the recorded vertical datum.",
+        "name": "altitude"
+      },
+      {
+        "availability": "first two digits of the hydrologic unit code recorded with the site; assumed fixed at establishment",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/queryables?f=json",
+        "meaning": "First two digits of the 12 digit hydrologic unit code, giving the hydrologic region.",
+        "name": "huc2_region"
+      },
+      {
+        "availability": "administrative state code recorded with the site; assumed fixed at establishment",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/queryables?f=json",
+        "meaning": "Two digit ANSI state code of the location, after excluding Mexican and Canadian subdivision codes 81 to 86 and 90 to 98.",
+        "name": "state_code"
+      },
+      {
+        "availability": "USGS Water Science Center district code recorded with the site; assumed to reflect the operating office at establishment, though offices are reorganised over time",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/queryables?f=json",
+        "meaning": "USGS Water Science Center district code that operates the location. The declared state and district group was expanded into these two concrete columns.",
+        "name": "district_code"
+      },
+      {
+        "availability": "hydrologic setting code recorded with the site; assumed fixed at establishment",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/site-types/items?f=json",
+        "meaning": "Hydrologic setting code such as ST stream, ST-CA canal, ST-DCH ditch, LK lake, ES estuary.",
+        "name": "site_type_code"
+      },
+      {
+        "availability": "constructed from a second metadata query, counting only instantaneous series whose begin is on or before the daily-mean begin date, so it is observable at the decision instant",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?parameter_code=00060&statistic_id=00011&agency_code=USGS&limit=1000&f=json",
+        "meaning": "1 when the same location also carries an instantaneous discharge series (parameter 00060, statistic 00011) whose begin is on or before the daily mean begin date; proxy for a telemetry equipped, operations funded gage.",
+        "name": "has_instantaneous_discharge_series"
+      },
+      {
+        "availability": "constructed from point geometry and per-series begin and end, counting only series with begin at or before the decision date and end at or after it; restricted to series present in this extract, so pre-2001 neighbours are invisible",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?parameter_code=00060&data_type=Daily%20values&agency_code=USGS&begin=2001-01-01/2019-12-31&limit=1000&f=json",
+        "meaning": "Count of distinct other USGS locations with a daily mean discharge series active on the decision date within 50 km, computed by haversine from feature coordinates.",
+        "name": "nearby_active_gage_count_50km"
+      },
+      {
+        "availability": "constructed only from series that begin before 2013-01-01 and whose fifth anniversary preceded the decision date, with an end already recorded before it; scored eval and holdout labels never enter the rate",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?parameter_code=00060&data_type=Daily%20values&agency_code=USGS&begin=2001-01-01/2019-12-31&limit=1000&f=json",
+        "meaning": "Share of training-window daily mean discharge series in the same hydrologic region whose fifth anniversary preceded the decision date and whose record had already ended before it.",
+        "name": "huc2_prior_termination_rate"
+      },
+      {
+        "availability": "derived from the begin date itself, so available exactly at the decision instant",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/time-series-metadata/queryables?f=json",
+        "meaning": "Calendar month 1 to 12 in which the record opened, capturing installation timing.",
+        "name": "begin_month"
+      }
+    ],
+    "outcome_horizon": "Five years from the first day of record (calendar fifth anniversary; about 1,826 days).",
+    "population": "USGS monitoring locations (agency code USGS) in the 50 states, DC and territories, excluding ANSI state codes 81 to 86 and 90 to 98 used for Mexican and Canadian subdivisions, that carry a primary daily mean discharge series (parameter 00060, statistic 00003, data type daily values) whose begin falls between 2001-01-01 and 2019-12-31. One row per location, taking the earliest such series. A location is excluded when another 00060 daily mean series at the same location was active at any time in the 365 days before that begin. Series with a null end are dropped.",
+    "prediction_time": "The series begin date (first day of the daily mean discharge record), using only site metadata and facts about the record and the surrounding network at the moment it opens; no later observation of that same series is used as an input.",
+    "question": "When a new USGS daily mean streamflow record opens at a monitoring location, will that record still be active five years later?",
+    "simple_references": "Majority class; begin-year cohort base rate; state and district identity rate learned from training rows only; and a two-rule heuristic combining drainage area above the training median with the instantaneous series flag. Persistence of the entity's own prior outcome does not apply because each location contributes one row.",
+    "split_policy": "Chronological by `begin` date: train 2001-01-01 to 2012-12-31; eval 2013-01-01 to 2015-12-31; holdout 2016-01-01 to 2019-12-31. A 60-day embargo gap is dropped immediately after each boundary (2013-01-01 to 2013-03-01 and 2016-01-01 to 2016-03-01) so multi-site installation projects do not straddle splits. Rows are distinct locations, so no location appears in more than one split and no row's outcome window is another row's input.",
+    "target": "y = 1 if the time series' `end` timestamp (most recent observation in that series) is on or after the fifth anniversary of `begin`; y = 0 otherwise. Series with no `end` value are dropped, never imputed.",
+    "usefulness": "The label is a future state of the record rather than a field copied from the row; it separates gages that become multi-decade series from short-lived project or miscellaneous records, which matters for weighting records in trend and load models and for setting cooperator expectations at installation. Inputs mix basin size, program identity and network context, leaving honest baselines real headroom."
+  },
+  "rows": {
+    "train": 2438,
+    "eval": 448,
+    "holdout": 574
+  },
+  "evaluation_contract": {
+    "access": "isolated_rows",
+    "cross_row_audit": {
+      "auxiliary_files_review": "Only train.csv, eval.csv and holdout.csv are written under the output directory; no fixture labels, answer scaffolds or auxiliary evaluation files.",
+      "probes": [],
+      "rationale": "Rows are distinct monitoring locations, so a location never appears in two splits and no row outcome window is another row input. The regional rate is deliberately restricted to series beginning before the training boundary so matured eval and holdout labels cannot leak into a scored row."
+    },
+    "feature_evidence": {
+      "altitude": {
+        "availability": "site attribute that is null for some sites; assumed stable since establishment, current-vintage value",
+        "source": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/queryables?f=json",
+        "status": "assumed"
+      },
+      "begin": {
+        "availability": "period-of-record start carried on the time-series metadata record and equal to the decision instant",
+        "source": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/time-series-metadata/queryables?f=json",
+        "status": "verified"
+      },
+      "begin_month": {
+        "availability": "derived from the begin date itself, so available exactly at the decision instant",
+        "source": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/time-series-metadata/queryables?f=json",
+        "status": "verified"
+      },
+      "contributing_drainage_area": {
+        "availability": "site attribute that is frequently null; assumed present at establishment where the publisher reports it, never filled with zero",
+        "source": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/queryables?f=json",
+        "status": "assumed"
+      },
+      "district_code": {
+        "availability": "USGS Water Science Center district code recorded with the site; assumed to reflect the operating office at establishment, though offices are reorganised over time",
+        "source": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/queryables?f=json",
+        "status": "assumed"
+      },
+      "drainage_area": {
+        "availability": "site attribute carried on the current record; assumed to describe the site at establishment, but the value may have been entered or revised after the record opened, and nulls stay missing",
+        "source": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/queryables?f=json",
+        "status": "assumed"
+      },
+      "end": {
+        "availability": "period-of-record end used only to build the label and to test whether a neighbour series was active at the decision instant",
+        "source": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/time-series-metadata/queryables?f=json",
+        "status": "verified"
+      },
+      "has_instantaneous_discharge_series": {
+        "availability": "constructed from a second metadata query, counting only instantaneous series whose begin is on or before the daily-mean begin date, so it is observable at the decision instant",
+        "source": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?parameter_code=00060&statistic_id=00011&agency_code=USGS&limit=1000&f=json",
+        "status": "assumed"
+      },
+      "huc2_prior_termination_rate": {
+        "availability": "constructed only from series that begin before 2013-01-01 and whose fifth anniversary preceded the decision date, with an end already recorded before it; scored eval and holdout labels never enter the rate",
+        "source": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?parameter_code=00060&data_type=Daily%20values&agency_code=USGS&begin=2001-01-01/2019-12-31&limit=1000&f=json",
+        "status": "assumed"
+      },
+      "huc2_region": {
+        "availability": "first two digits of the hydrologic unit code recorded with the site; assumed fixed at establishment",
+        "source": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/queryables?f=json",
+        "status": "assumed"
+      },
+      "monitoring_location_id": {
+        "availability": "stable site identifier assigned at establishment and returned on every metadata record",
+        "source": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/queryables?f=json",
+        "status": "verified"
+      },
+      "nearby_active_gage_count_50km": {
+        "availability": "constructed from point geometry and per-series begin and end, counting only series with begin at or before the decision date and end at or after it; restricted to series present in this extract, so pre-2001 neighbours are invisible",
+        "source": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?parameter_code=00060&data_type=Daily%20values&agency_code=USGS&begin=2001-01-01/2019-12-31&limit=1000&f=json",
+        "status": "assumed"
+      },
+      "site_type_code": {
+        "availability": "hydrologic setting code recorded with the site; assumed fixed at establishment",
+        "source": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/site-types/items?f=json",
+        "status": "assumed"
+      },
+      "state_code": {
+        "availability": "administrative state code recorded with the site; assumed fixed at establishment",
+        "source": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/queryables?f=json",
+        "status": "assumed"
+      }
+    },
+    "limitations": [
+      "Current-vintage retrospective design: drainage area, contributing area, altitude, site type, state, district and the primary flag are read from the current record, not an archived 2001-2019 snapshot, so their operational availability at establishment is unverified.",
+      "The label is record continuation, not physical gage survival: a series can end because publication changed, the site converted to stage-only, or the record moved to another agency.",
+      "The 365 day continuation exclusion can only see sibling series that begin inside the 2001-2019 download window, so a location whose earlier series began before 2001 and overlapped the new begin date cannot be detected from this extract.",
+      "The nearby gage count and the regional termination rate are computed from series present in this single download, which excludes cooperating-agency records and series beginning outside the window.",
+      "No full-row availability ledger exists, so training label timing is unverified and the task is not a forecasting claim.",
+      "Missing site metadata such as drainage area, contributing area and altitude stay missing rather than being imputed as zero."
+    ],
+    "selection": {
+      "evidence": "Eligibility is decided only from record facts readable on the begin date: agency, parameter, statistic, data type, begin, state code and the presence of an end value. Features use site metadata plus two network reconstructions that read only series active or already ended at or before the begin date. No outcome value selects rows. The shipped begin column is the decision instant itself, known when the record opens; only the recorded end enters the label as a post-outcome observation compared with the fifth anniversary of begin.",
+      "kind": "prediction_time",
+      "outcome_conditioning": "Rows with a null end timestamp are excluded because the label cannot be computed; that is conditioning on label availability, not on the label value."
+    },
+    "training_label_timing": "unverified",
+    "use": "retrospective_research",
+    "vintage": {
+      "evidence": "The combined-metadata collection returns the current record for each site; no archived 2001-2019 snapshot of site attributes or series metadata is published.",
+      "kind": "current_snapshot"
+    }
+  },
+  "limitations": [
+    "Current-vintage retrospective design: drainage area, altitude, site type and the primary/approval flag are read from today's record, not from an archived 2001-2019 snapshot. They are plausible establishment-time attributes but this does not prove historical operational availability.",
+    "A daily mean discharge series can end because publication changed (gage continues with stage only, converts to instantaneous-only, or is transferred to another agency), not only because the physical gage closed. The label is record continuation, not infrastructure survival.",
+    "Series with internal gaps count as continued if the last observation passes the fifth anniversary; no data-completeness threshold is applied, which the next task may add as a documented secondary variant.",
+    "USGS `begin` dates for older or migrated sites can reflect data-system history rather than the first day of physical operation; restricting to 2001-2019 reduces but does not eliminate this.",
+    "Cooperating-agency and non-USGS records are excluded by the agency_code = 'USGS' filter, so the population is USGS-operated records only; this also keeps the statutory public-domain basis clean.",
+    "17 U.S.C. 105 is a U.S.-law exclusion and the legislative history states it has no effect on protection abroad; we claim U.S. public-domain status only and assert no worldwide dedication.",
+    "Unauthenticated API rate limits apply; an api_key may be needed for bulk paging, and the service's page size and cursor behaviour should be handled defensively rather than assumed.",
+    "Labels freeze at the 2026-11-15 snapshot; all outcome windows close by 2024-12-31, so late data revisions should not change this cohort's labels, but a later rebuild will produce a slightly different population.",
+    "State and district features partly encode funding and program shocks, so the task measures administrative persistence as well as hydrologic or infrastructure factors; no causal interpretation is warranted.",
+    "Current-vintage retrospective design: drainage area, contributing area, altitude, site type, state, district and the primary flag are read from the current record, not an archived 2001-2019 snapshot, so their operational availability at establishment is unverified.",
+    "The label is record continuation, not physical gage survival: a series can end because publication changed, the site converted to stage-only, or the record moved to another agency.",
+    "The 365 day continuation exclusion can only see sibling series that begin inside the 2001-2019 download window, so a location whose earlier series began before 2001 and overlapped the new begin date cannot be detected from this extract.",
+    "The nearby gage count and the regional termination rate are computed from series present in this single download, which excludes cooperating-agency records and series beginning outside the window.",
+    "No full-row availability ledger exists, so training label timing is unverified and the task is not a forecasting claim.",
+    "Missing site metadata such as drainage area, contributing area and altitude stay missing rather than being imputed as zero.",
+    "No uncertainty interval; observed differences do not establish universal headroom"
+  ],
+  "qualification": {
+    "gate_version": "1.6.1",
+    "ok": true
+  }
+}

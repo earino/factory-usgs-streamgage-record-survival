@@ -1,0 +1,167 @@
+{
+  "checks": [
+    {
+      "check": "combined-metadata daily query returned features",
+      "observed": "5 pages and 4919 features",
+      "expected": "at least one page holding at least one feature",
+      "passed": true
+    },
+    {
+      "check": "declared source fields resolved from the combined-metadata response",
+      "observed": "missing fields []; observed headers ['_lat', '_lon', '_page_url', 'agency_code', 'agency_name', 'altitude', 'altitude_accuracy', 'altitude_method_code', 'altitude_method_name', 'aquifer_code', 'aquifer_type_code', 'basin_code', 'begin', 'computation_identifier', 'construction_date', 'contributing_drainage_area', 'country_code', 'country_name', 'county_code', 'county_name', 'data_gap_interval', 'data_type', 'depth_source_code', 'district_code', 'drainage_area', 'end', 'hole_constructed_depth', 'horizontal_position_method_code', 'horizontal_position_method_name', 'horizontal_positional_accuracy', 'horizontal_positional_accuracy_code', 'hydrologic_unit_code', 'id', 'last_modified', 'minor_civil_division_code', 'monitoring_location_id', 'monitoring_location_name', 'monitoring_location_number', 'national_aquifer_code', 'original_horizontal_datum', 'original_horizontal_datum_name', 'parameter_code', 'parameter_description', 'parameter_name', 'parent_time_series_id', 'primary', 'reading_type', 'site_type', 'site_type_code', 'state_code', 'state_name', 'statistic_id', 'sublocation_identifier', 'thresholds', 'time_zone_abbreviation', 'unit_of_measure', 'uses_daylight_savings', 'vertical_datum', 'vertical_datum_name', 'web_description', 'well_constructed_depth']",
+      "expected": "every declared field resolved to a response header",
+      "passed": true
+    },
+    {
+      "check": "point coordinates resolved from geometry or site properties",
+      "observed": "4919 of 4919 raw features carry a longitude",
+      "expected": "the response carries point coordinates either as GeoJSON geometry or as longitude and latitude properties",
+      "passed": true
+    },
+    {
+      "check": "agency code filter kept only USGS records",
+      "observed": "0 retained rows with a non-USGS agency code",
+      "expected": "0 retained rows with a non-USGS agency code",
+      "passed": true
+    },
+    {
+      "check": "parameter code filter kept only discharge 00060",
+      "observed": "0 retained rows with another parameter code; 0 other-parameter rows observed and dropped",
+      "expected": "0 retained rows with another parameter code",
+      "passed": true
+    },
+    {
+      "check": "statistic filter kept only daily mean 00003",
+      "observed": "3500 retained rows on statistic 00003 out of 4919 raw features",
+      "expected": "statistic 00003 rows present and every retained row on 00003",
+      "passed": true
+    },
+    {
+      "check": "begin dates restricted to the frozen 2001 to 2019 window",
+      "observed": "retained begin range 2001-01-17 00:00:00 to 2019-12-21 00:00:00; outside-window rows dropped 0",
+      "expected": "every retained begin inside 2001-01-01 up to 2019-12-31",
+      "passed": true
+    },
+    {
+      "check": "series without an end timestamp dropped rather than imputed",
+      "observed": "0 raw rows dropped for a null end; 0 retained rows with a null end",
+      "expected": "0 retained rows with a null end",
+      "passed": true
+    },
+    {
+      "check": "state code exclusion for Mexican and Canadian subdivision codes",
+      "observed": "3 rows dropped with ANSI state codes 81 to 86 or 90 to 98",
+      "expected": "rows carrying codes 81 to 86 or 90 to 98 are outside the frozen population",
+      "passed": true
+    },
+    {
+      "check": "continuation exclusion evaluated for every candidate location",
+      "observed": "3487 candidate locations tested against every daily series in the extract",
+      "expected": "candidate count equal to the deduplicated location count",
+      "passed": true
+    },
+    {
+      "check": "locations excluded as pre-existing continuations",
+      "observed": "0 locations dropped; 3500 daily series inspected",
+      "expected": "a location with another daily-mean series active in the prior 365 days is a continuation, not a new record",
+      "passed": true
+    },
+    {
+      "check": "one row per monitoring location after deduplication",
+      "observed": "0 duplicated location identifiers",
+      "expected": "0 duplicated location identifiers",
+      "passed": true
+    },
+    {
+      "check": "target recomputed from begin and end matches the stored label",
+      "observed": "0 mismatching rows",
+      "expected": "0 mismatching rows",
+      "passed": true
+    },
+    {
+      "check": "target is binary with no missing values",
+      "observed": "values [0, 1] over 3487 rows",
+      "expected": "only the values 0 and 1, no nulls",
+      "passed": true
+    },
+    {
+      "check": "instantaneous discharge metadata returned features",
+      "observed": "15 pages and 14635 features",
+      "expected": "at least one instantaneous discharge feature for the network flag",
+      "passed": true
+    },
+    {
+      "check": "instantaneous metadata rows carry statistic 00011 or a null statistic",
+      "observed": "14313 usable instantaneous rows from 14635 flattened rows",
+      "expected": "at least one usable instantaneous series row",
+      "passed": true
+    },
+    {
+      "check": "prior termination rate uses only training-window beginnings",
+      "observed": "latest pool begin 2012-12-06 00:00:00 over 2442 reference series",
+      "expected": "every reference series begins before 2013-01-01 so scored labels never enter the rate",
+      "passed": true
+    },
+    {
+      "check": "prior termination rate is a share in the closed unit interval",
+      "observed": "2339 usable rows, minimum 0.0, maximum 1.0",
+      "expected": "every usable rate between 0 and 1 inclusive, missing where no resolvable series exists",
+      "passed": true
+    },
+    {
+      "check": "nearby gage count is a non-negative integer below the series total",
+      "observed": "usable rows 3487, minimum 0, maximum 57",
+      "expected": "counts between 0 and the number of other series in the extract",
+      "passed": true
+    },
+    {
+      "check": "population rows carry location coordinates for the network features",
+      "observed": "0 of 3487 population rows without coordinates; 0 raw rows lacked coordinates",
+      "expected": "at least 99 percent of population rows carry coordinates; nulls stay null and never become zero",
+      "passed": true
+    },
+    {
+      "check": "unit check for the five year continuation horizon",
+      "observed": "median day span 1826 days between begin and the fifth anniversary over 3487 rows",
+      "expected": "a calendar fifth anniversary is 1826 or 1827 days, so the horizon is years not an arbitrary day count",
+      "passed": true,
+      "kind": "unit"
+    },
+    {
+      "check": "sixty day embargo gaps hold no shipped rows",
+      "observed": "0 shipped rows inside a gap; 27 rows dropped as gap rows",
+      "expected": "0 shipped rows inside 2013-01-01 to 2013-03-01 or 2016-01-01 to 2016-03-01",
+      "passed": true
+    },
+    {
+      "check": "all three splits carry identical columns in identical order",
+      "observed": "train ['monitoring_location_id', 'begin', 'drainage_area', 'contributing_drainage_area', 'altitude', 'huc2_region', 'state_code', 'district_code', 'site_type_code', 'has_instantaneous_discharge_series', 'nearby_active_gage_count_50km', 'huc2_prior_termination_rate', 'begin_month', 'continued_5y']; eval ['monitoring_location_id', 'begin', 'drainage_area', 'contributing_drainage_area', 'altitude', 'huc2_region', 'state_code', 'district_code', 'site_type_code', 'has_instantaneous_discharge_series', 'nearby_active_gage_count_50km', 'huc2_prior_termination_rate', 'begin_month', 'continued_5y']; holdout ['monitoring_location_id', 'begin', 'drainage_area', 'contributing_drainage_area', 'altitude', 'huc2_region', 'state_code', 'district_code', 'site_type_code', 'has_instantaneous_discharge_series', 'nearby_active_gage_count_50km', 'huc2_prior_termination_rate', 'begin_month', 'continued_5y']",
+      "expected": "the same declared identifier, time, feature and target columns",
+      "passed": true
+    },
+    {
+      "check": "every declared feature column carries at least one observed value",
+      "observed": "non-null counts {'drainage_area': 2740, 'contributing_drainage_area': 421, 'altitude': 3094, 'huc2_region': 3457, 'state_code': 3460, 'district_code': 3460, 'site_type_code': 3460, 'has_instantaneous_discharge_series': 3460, 'nearby_active_gage_count_50km': 3460, 'huc2_prior_termination_rate': 2312, 'begin_month': 3460}",
+      "expected": "no declared feature is shipped as an entirely empty column",
+      "passed": true
+    },
+    {
+      "check": "missing drainage area values stay missing instead of being filled with zero",
+      "observed": "720 null source values and 720 null shipped values",
+      "expected": "null counts identical between the population and the shipped rows",
+      "passed": true
+    },
+    {
+      "check": "split boundaries are chronological and half open",
+      "observed": "train max 2012-12-06; eval 2013-03-01 to 2015-12-16; holdout min 2016-03-01",
+      "expected": "train below 2013-01-01, eval from 2013-03-01 below 2016-01-01, holdout from 2016-03-01",
+      "passed": true
+    },
+    {
+      "check": "no identifier appears in more than one split",
+      "observed": "0 train identifiers repeated elsewhere; 0 eval identifiers repeated in holdout",
+      "expected": "0 repeated identifiers across splits",
+      "passed": true
+    }
+  ]
+}

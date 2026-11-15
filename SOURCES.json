@@ -1,0 +1,156 @@
+{
+  "publisher-terms.snapshot": {
+    "url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+    "bytes": 88994,
+    "sha256": "8bf347d2a7299ec4f1023548349a9dc1237857c96cca43b1dcc06a8eaf9a6178",
+    "retrieved_at_unix": 1794785957.7716386,
+    "transport_attempts": 1
+  },
+  "publisher-documentation.snapshot": {
+    "url": "https://api.waterdata.usgs.gov/docs/ogcapi/",
+    "bytes": 57292,
+    "sha256": "ce0b32a5201670b8769053d9c8bcac91809251ea266462ca444aa5b24ab0c8b9",
+    "retrieved_at_unix": 1794785958.9585145,
+    "transport_attempts": 1
+  },
+  "usgs-daily-0000.json": {
+    "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?parameter_code=00060&data_type=Daily%20values&agency_code=USGS&begin=2001-01-01/2019-12-31&limit=1000&f=json",
+    "bytes": 2790987,
+    "sha256": "70c82d9737f1755bf2cc589445fa4b852d4abeab490c3edd3ec7a881bd35250c",
+    "retrieved_at_unix": 1794785961.6122048,
+    "transport_attempts": 1
+  },
+  "usgs-daily-0001.json": {
+    "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?cursor=MzQxZDM4YzM1ZDFkNDYwMDk4NTUzZTI2OGYzZDdkMDE&parameter_code=00060&data_type=Daily%20values&agency_code=USGS&begin=2001-01-01%2F2019-12-31&limit=1000&f=json",
+    "bytes": 2788239,
+    "sha256": "cc577496da8acabf6d0bffe3cbe311f5a21e50dd9e799c3c903187a068265422",
+    "retrieved_at_unix": 1794785964.0053928,
+    "transport_attempts": 1
+  },
+  "usgs-daily-0002.json": {
+    "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?cursor=NjY1YTA4MTQ4NmVjNGRiZDg5OTE4YjJlNGRmYjBjYmM&parameter_code=00060&data_type=Daily%20values&agency_code=USGS&begin=2001-01-01%2F2019-12-31&limit=1000&f=json",
+    "bytes": 2791101,
+    "sha256": "b08b425fd5096f40ac1f709056bf7de5342babd64b955aba22bdc2138a1eb3fe",
+    "retrieved_at_unix": 1794785966.7213192,
+    "transport_attempts": 1
+  },
+  "usgs-daily-0003.json": {
+    "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?cursor=OWIyMmQ3YjhmN2JkNDEyZWE1MjMwN2NmZjNkNDc5ODM&parameter_code=00060&data_type=Daily%20values&agency_code=USGS&begin=2001-01-01%2F2019-12-31&limit=1000&f=json",
+    "bytes": 2786244,
+    "sha256": "3ba954a8d95b11bc18293c99f0f6ae2447864b6c96e2e9ad12924d64f9574b2d",
+    "retrieved_at_unix": 1794785968.90383,
+    "transport_attempts": 1
+  },
+  "usgs-daily-0004.json": {
+    "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?cursor=Y2ZlYjY3ODk5ZjMzNDkyN2EyZmFkY2NmNjE4ZWQ1YjQ&parameter_code=00060&data_type=Daily%20values&agency_code=USGS&begin=2001-01-01%2F2019-12-31&limit=1000&f=json",
+    "bytes": 2561318,
+    "sha256": "b5db77184873861d8cd12df5091a133b28ea89d8174268de4189ca42118d3c56",
+    "retrieved_at_unix": 1794785971.1946757,
+    "transport_attempts": 1
+  },
+  "usgs-instantaneous-0000.json": {
+    "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?parameter_code=00060&statistic_id=00011&agency_code=USGS&limit=1000&f=json",
+    "bytes": 3220859,
+    "sha256": "0d5033851da1d12121a9890b40fdb27258663c9195b97cceac1d9e3b697e60f2",
+    "retrieved_at_unix": 1794785973.8501806,
+    "transport_attempts": 1
+  },
+  "usgs-instantaneous-0001.json": {
+    "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?cursor=MTExMmY0NzM5OWQ5NGNkZDhiZWRjZTk5YjkwNDFmYjk&parameter_code=00060&statistic_id=00011&agency_code=USGS&limit=1000&f=json",
+    "bytes": 3176257,
+    "sha256": "687b1a1cfa75b5294c9486fe34eb0070a72a85eb66c4b3136208621c6cc35710",
+    "retrieved_at_unix": 1794785976.827103,
+    "transport_attempts": 1
+  },
+  "usgs-instantaneous-0002.json": {
+    "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?cursor=MjJiNDQ4Y2FhNDU3NDE0YjhjZWE1YTExYmMyOTlmNjY&parameter_code=00060&statistic_id=00011&agency_code=USGS&limit=1000&f=json",
+    "bytes": 3208780,
+    "sha256": "ba81fb8da18524c6248795bde7b051011661e2b5d16d21fa739ff81a0b49ab08",
+    "retrieved_at_unix": 1794785979.6058815,
+    "transport_attempts": 1
+  },
+  "usgs-instantaneous-0003.json": {
+    "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?cursor=MzQ4YjFjZDNkN2JmNDliOTlhMGEzNmFlZWNlZTFiZTE&parameter_code=00060&statistic_id=00011&agency_code=USGS&limit=1000&f=json",
+    "bytes": 3271372,
+    "sha256": "106cf65594e47dc1bf09f5cec96bf579c737e12e797a2148e371cf4c0cf4b30b",
+    "retrieved_at_unix": 1794785981.9045706,
+    "transport_attempts": 1
+  },
+  "usgs-instantaneous-0004.json": {
+    "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?cursor=NDU0OGMyMjE3ZjFjNDVlZjg1ZDgzZjIxYWJiMWFmYmE&parameter_code=00060&statistic_id=00011&agency_code=USGS&limit=1000&f=json",
+    "bytes": 3161062,
+    "sha256": "292b0f4cf5cae344e9c52a1af09e3f9ef77d9e090da351bba075daca2b3e006b",
+    "retrieved_at_unix": 1794785984.6860523,
+    "transport_attempts": 1
+  },
+  "usgs-instantaneous-0005.json": {
+    "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?cursor=NTcyYzI5MjYzZDI1NDFmNzgzOWNlZmI3ZWZlZWQwMjY&parameter_code=00060&statistic_id=00011&agency_code=USGS&limit=1000&f=json",
+    "bytes": 3217967,
+    "sha256": "2bf19058eecb691c9a574faa81edbdb7d241ffdf7022b894a89727d2e302efda",
+    "retrieved_at_unix": 1794785987.3446724,
+    "transport_attempts": 1
+  },
+  "usgs-instantaneous-0006.json": {
+    "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?cursor=NjdjODlmNzVlNDRmNDg2NjhlZDU1ZTlmYzAyYzg1ZmQ&parameter_code=00060&statistic_id=00011&agency_code=USGS&limit=1000&f=json",
+    "bytes": 3220013,
+    "sha256": "9af8b38f76cfdfcc9a6e9334a405806555c0b2ab1dee62428767b456cfb4ac77",
+    "retrieved_at_unix": 1794785989.703552,
+    "transport_attempts": 1
+  },
+  "usgs-instantaneous-0007.json": {
+    "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?cursor=Nzk0NWE4NTI0YzI0NDRmMGEzNTEyNThiNmI5ODAxYmM&parameter_code=00060&statistic_id=00011&agency_code=USGS&limit=1000&f=json",
+    "bytes": 3196578,
+    "sha256": "0525b2234168b4d88c4d26c20012d6ba9434c25521b939fcd7ff3276e97b151c",
+    "retrieved_at_unix": 1794785992.068043,
+    "transport_attempts": 1
+  },
+  "usgs-instantaneous-0008.json": {
+    "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?cursor=OGE5ZTIzZDY1NzA3NDYyNjljODAzNTExNWFhODI4Njk&parameter_code=00060&statistic_id=00011&agency_code=USGS&limit=1000&f=json",
+    "bytes": 3176392,
+    "sha256": "3448478cd59bb801d7a943b63d5f48103a9a44de3de1c6ce7851ad09ca0dbc93",
+    "retrieved_at_unix": 1794785994.1582513,
+    "transport_attempts": 1
+  },
+  "usgs-instantaneous-0009.json": {
+    "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?cursor=OWM4NzQ5NjQxYTQ3NDY2ZTg5ZmM0ZjJmNjM3NjYwOGY&parameter_code=00060&statistic_id=00011&agency_code=USGS&limit=1000&f=json",
+    "bytes": 3240637,
+    "sha256": "d69ee1aff23d832954090201577bd742ad02fdf8a4a39a2e0f70850173a0149f",
+    "retrieved_at_unix": 1794785996.7509587,
+    "transport_attempts": 1
+  },
+  "usgs-instantaneous-0010.json": {
+    "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?cursor=YWU0NjYwMTc4M2M4NDEzMWJmZDlkZWY0OTBjZGMwNGM&parameter_code=00060&statistic_id=00011&agency_code=USGS&limit=1000&f=json",
+    "bytes": 3218408,
+    "sha256": "ba051467fd7268dfdc4f81957a14b8b865c83d688d140e12059bd985e39c1fc0",
+    "retrieved_at_unix": 1794785999.2112694,
+    "transport_attempts": 1
+  },
+  "usgs-instantaneous-0011.json": {
+    "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?cursor=YzAxNDBmMmEwMzE2NGE3NWI0YmVlNmMzNzA5MjA4MGQ&parameter_code=00060&statistic_id=00011&agency_code=USGS&limit=1000&f=json",
+    "bytes": 3261529,
+    "sha256": "21dde78de1ce3078294527654888484bddb6c22528bc379efe921adae85524ae",
+    "retrieved_at_unix": 1794786001.2541966,
+    "transport_attempts": 1
+  },
+  "usgs-instantaneous-0012.json": {
+    "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?cursor=ZDFlZDVlMTNkMTY1NGE2MmI5YThkZTVkYjE0NWI4ZmM&parameter_code=00060&statistic_id=00011&agency_code=USGS&limit=1000&f=json",
+    "bytes": 3246579,
+    "sha256": "48279222df1b6a17676a0a70ddee77c1f2daabbfa2ea221c159d050810614789",
+    "retrieved_at_unix": 1794786003.871147,
+    "transport_attempts": 1
+  },
+  "usgs-instantaneous-0013.json": {
+    "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?cursor=ZTNhMWQ4NTZhODMzNDllMWI5NzgxMGE2Y2Y3YjQ4MmM&parameter_code=00060&statistic_id=00011&agency_code=USGS&limit=1000&f=json",
+    "bytes": 3222733,
+    "sha256": "6e0b4cda27360ed220df523ae6563ea9685cdece502380b8d94ea7124ec521c0",
+    "retrieved_at_unix": 1794786006.3207395,
+    "transport_attempts": 1
+  },
+  "usgs-instantaneous-0014.json": {
+    "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?cursor=ZjU2MzMxN2JkMTAxNDgyZWJjMmM2ZGJhM2Y3MDU5NDQ&parameter_code=00060&statistic_id=00011&agency_code=USGS&limit=1000&f=json",
+    "bytes": 2045488,
+    "sha256": "0d7351887b2d7cc9feb5a33274de707fcbb0021f9053cac68b133f24972c7e4b",
+    "retrieved_at_unix": 1794786008.326208,
+    "transport_attempts": 1
+  }
+}

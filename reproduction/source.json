@@ -1,0 +1,173 @@
+{
+  "construction": {
+    "access_recipe": "1) GET the combined-metadata URL with parameter_code 00060, data_type Daily values, agency_code USGS and begin 2001-01-01/2019-12-31, following links with rel next until no next link remains and caching each page. 2) Flatten each feature: keep site properties and expand only the nested time-series list whose items carry begin, end, parameter_code, statistic_id or data_type; ignore unrelated nested lists. Use GeoJSON geometry coordinates when present and longitude and latitude properties otherwise. 3) Keep USGS rows with parameter 00060, statistic 00003, a daily data type, a primary series, a begin inside 2001-01-01 to 2019-12-31, a non-null end, and a state code outside 81-86 and 90-98. 4) Deduplicate to the earliest qualifying series per location and drop a location when another daily series was active in the prior 365 days. 5) Build the label from begin and end date arithmetic only. 6) Query the combined-metadata collection for parameter 00060 instantaneous series, first with statistic_id 00011 and, if that returns no features, with data_type Instantaneous values; build the flag only from series whose begin is on or before the daily begin date. 7) Count distinct other locations with a daily series active at the decision date within 50 km by haversine, excluding the row own location by identifier. 8) Build the regional termination rate only from series that begin before 2013-01-01, whose fifth anniversary is on or before the decision date, and whose end is before the decision date; scored eval and holdout labels never enter the rate. 9) Assign half-open splits by begin date with 60 day embargo gaps and write train, eval and holdout.",
+    "expected_size": "Explicitly estimated, not measured: the service does not return numberMatched for this collection. Nationwide there are on the order of 25,000-30,000 parameter-00060 time series (all statistics, all agencies); the 2001-2019 daily-mean begin window is estimated at roughly 8,000-12,000 USGS locations after deduplication. Raw JSON pages on the order of 30-80 MB; final modeling table roughly 8k-12k rows by about 15 columns. Sample cohorts observed on 2026-11-15 showed a five-year continuation rate near 40-60%, so no severe class imbalance.",
+    "format": "OGC API features (GeoJSON pages) from api.waterdata.usgs.gov, parsed to a flat CSV for the benchmark; CSV output is also advertised by the service as an alternate link, but JSON paging is the verified path.",
+    "source_examples": "Observed on 2026-11-15 via the filtered endpoint: USGS-08025500 'Bayou Toro near Toro, LA' has begin 1955-10-01, end 2026-11-13, statistic_id 00003, data_type 'Daily values', unit ft^3/s, drainage_area 148.0, state Louisiana. USGS-05579725 'LITTLE KICKAPOO CREEK NEAR HEYWORTH, IL' has begin 2005-05-26, end 2026-11-13, drainage_area 24.9. USGS-03236800 'Salt Creek at Richmond Dale OH' has begin 2005-07-01, end 2007-08-31, drainage_area 552.0 - an example of a record that fails the five-year test. USGS-02264141 shows a null altitude and null drainage area, confirming that missing metadata must be handled rather than assumed present."
+  },
+  "dataset_id": "usgs-streamgage-record-survival",
+  "evidence": [
+    {
+      "claim": "USGS states that USGS-produced data are in the U.S. public domain, which is the publisher designation we report (no licence grant, no CC0).",
+      "quote": "USGS-authored or produced data and information are considered to be in the U.S. Public Domain.",
+      "url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits"
+    },
+    {
+      "claim": "Statutory basis for reuse without a publisher licence: the government-work exclusion in 17 U.S.C. 105(a).",
+      "quote": "Copyright protection under this title is not available for any work of the United States Government",
+      "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm"
+    },
+    {
+      "claim": "The same statute's legislative history limits the public-domain effect to U.S. law, so we assert no worldwide dedication.",
+      "quote": "The prohibition on copyright protection for United States Government works is not intended to have any effect on protection of these works abroad.",
+      "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap1-sec105.htm"
+    },
+    {
+      "claim": "`begin` and `end` are the series period of record and `end` defines whether the series is active, which is exactly what the label is built from.",
+      "quote": "Together with `begin`, this field represents the period of record of a time series. It is additionally used to determine whether a time series is \"active\".",
+      "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/time-series-metadata/queryables?f=json"
+    },
+    {
+      "claim": "Justifies restricting to primary series: non-primary (provisional) series are short-lived system artefacts.",
+      "quote": "Non-primary time series data are only retained by this system for 120 days.",
+      "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/time-series-metadata/queryables?f=json"
+    },
+    {
+      "claim": "Statistic and parameter coding used to select daily mean discharge.",
+      "quote": "Example codes include 00001 (max), 00002 (min), and 00003 (mean).",
+      "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/time-series-metadata/queryables?f=json"
+    },
+    {
+      "claim": "Definition of the drainage-area feature used as an input.",
+      "quote": "The area enclosed by a topographic divide from which direct surface runoff from precipitation normally drains by gravity into the stream above that point.",
+      "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/queryables?f=json"
+    },
+    {
+      "claim": "The combined-metadata collection, which is the download endpoint, returns site and series metadata together.",
+      "quote": "This endpoint combines metadata from timeseries and field measurements collections by site.",
+      "url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections"
+    },
+    {
+      "claim": "Construction uses the modernized OGC API because the legacy waterservices endpoint is scheduled for retirement.",
+      "quote": "The legacy WaterServices will be decommissioned in the first quarter of 2027.",
+      "url": "https://www.usgs.gov/tools/usgs-water-data-apis"
+    },
+    {
+      "claim": "Publisher-supplied credit wording reproduced verbatim in the attribution field.",
+      "quote": "Data compiled by the U.S. Geological Survey",
+      "url": "https://www.usgs.gov/information-policies-and-instructions/acknowledging-or-crediting-usgs"
+    },
+    {
+      "claim": "Scope and size of the underlying database (record source: USGS Asset Identifier Service, DOI 10.5066/F7P55KJN).",
+      "quote": "This collection provides access to water-resources data collected at approximately 1.5 million sites in all 50 States",
+      "url": "https://www.usgs.gov/data/usgs-water-data-nation"
+    }
+  ],
+  "limitations": [
+    "Current-vintage retrospective design: drainage area, altitude, site type and the primary/approval flag are read from today's record, not from an archived 2001-2019 snapshot. They are plausible establishment-time attributes but this does not prove historical operational availability.",
+    "A daily mean discharge series can end because publication changed (gage continues with stage only, converts to instantaneous-only, or is transferred to another agency), not only because the physical gage closed. The label is record continuation, not infrastructure survival.",
+    "Series with internal gaps count as continued if the last observation passes the fifth anniversary; no data-completeness threshold is applied, which the next task may add as a documented secondary variant.",
+    "USGS `begin` dates for older or migrated sites can reflect data-system history rather than the first day of physical operation; restricting to 2001-2019 reduces but does not eliminate this.",
+    "Cooperating-agency and non-USGS records are excluded by the agency_code = 'USGS' filter, so the population is USGS-operated records only; this also keeps the statutory public-domain basis clean.",
+    "17 U.S.C. 105 is a U.S.-law exclusion and the legislative history states it has no effect on protection abroad; we claim U.S. public-domain status only and assert no worldwide dedication.",
+    "Unauthenticated API rate limits apply; an api_key may be needed for bulk paging, and the service's page size and cursor behaviour should be handled defensively rather than assumed.",
+    "Labels freeze at the 2026-11-15 snapshot; all outcome windows close by 2024-12-31, so late data revisions should not change this cohort's labels, but a later rebuild will produce a slightly different population.",
+    "State and district features partly encode funding and program shocks, so the task measures administrative persistence as well as hydrologic or infrastructure factors; no causal interpretation is warranted."
+  ],
+  "reason": "The USGS Water Data OGC API exposes a single machine-readable collection (combined-metadata) that carries, per monitoring location, both site attributes (drainage area, altitude, HUC, state, site type, agency) and the exact period of record (begin/end) of each daily mean discharge time series. That supports a one-row-per-location forward task whose label is a later observation date rather than a copied field, with no accounts, no joins across agencies, and no personal data. Reuse rests on a verified statutory basis (17 U.S.C. 105(a)) plus the publisher's own statement that USGS-produced data are in the U.S. public domain; the agency_code=USGS restriction keeps third-party cooperating-agency records out of scope.",
+  "source": {
+    "attribution": "Data compiled by the U.S. Geological Survey",
+    "citation": "U.S. Geological Survey, 2026, USGS water data for the Nation: U.S. Geological Survey National Water Information System database, accessed November 15, 2026, at https://doi.org/10.5066/F7P55KJN",
+    "documentation_url": "https://api.waterdata.usgs.gov/docs/ogcapi/",
+    "license": "U.S. public domain: government-work exclusion under 17 U.S.C. 105(a); USGS states its produced data are in the U.S. Public Domain. No upstream licence grant and no CC0 designation on this database record.",
+    "publisher": "U.S. Geological Survey (USGS), U.S. Department of the Interior",
+    "redistribution": true,
+    "terms_excerpt": "USGS-authored or produced data and information are considered to be in the U.S. Public Domain.",
+    "terms_url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+    "urls": [
+      "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?parameter_code=00060&data_type=Daily%20values&agency_code=USGS&begin=2001-01-01/2019-12-31&limit=1000&f=json",
+      "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?parameter_code=00060&statistic_id=00011&agency_code=USGS&limit=1000&f=json"
+    ]
+  },
+  "task": {
+    "decision_user": "USGS Water Science Center network managers and cooperating funders deciding whether to commit to a new gage past its initial term, and data users judging whether a young record is likely to become a multi-decade series suitable for trend or load analysis.",
+    "features": [
+      {
+        "availability": "site attribute carried on the current record; assumed to describe the site at establishment, but the value may have been entered or revised after the record opened, and nulls stay missing",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/queryables?f=json",
+        "meaning": "Basin area upstream of the gage in square miles.",
+        "name": "drainage_area"
+      },
+      {
+        "availability": "site attribute that is frequently null; assumed present at establishment where the publisher reports it, never filled with zero",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/queryables?f=json",
+        "meaning": "Contributing area in square miles when it differs from the total drainage area.",
+        "name": "contributing_drainage_area"
+      },
+      {
+        "availability": "site attribute that is null for some sites; assumed stable since establishment, current-vintage value",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/queryables?f=json",
+        "meaning": "Gage or land surface altitude in feet on the recorded vertical datum.",
+        "name": "altitude"
+      },
+      {
+        "availability": "first two digits of the hydrologic unit code recorded with the site; assumed fixed at establishment",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/queryables?f=json",
+        "meaning": "First two digits of the 12 digit hydrologic unit code, giving the hydrologic region.",
+        "name": "huc2_region"
+      },
+      {
+        "availability": "administrative state code recorded with the site; assumed fixed at establishment",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/queryables?f=json",
+        "meaning": "Two digit ANSI state code of the location, after excluding Mexican and Canadian subdivision codes 81 to 86 and 90 to 98.",
+        "name": "state_code"
+      },
+      {
+        "availability": "USGS Water Science Center district code recorded with the site; assumed to reflect the operating office at establishment, though offices are reorganised over time",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/monitoring-locations/queryables?f=json",
+        "meaning": "USGS Water Science Center district code that operates the location. The declared state and district group was expanded into these two concrete columns.",
+        "name": "district_code"
+      },
+      {
+        "availability": "hydrologic setting code recorded with the site; assumed fixed at establishment",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/site-types/items?f=json",
+        "meaning": "Hydrologic setting code such as ST stream, ST-CA canal, ST-DCH ditch, LK lake, ES estuary.",
+        "name": "site_type_code"
+      },
+      {
+        "availability": "constructed from a second metadata query, counting only instantaneous series whose begin is on or before the daily-mean begin date, so it is observable at the decision instant",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?parameter_code=00060&statistic_id=00011&agency_code=USGS&limit=1000&f=json",
+        "meaning": "1 when the same location also carries an instantaneous discharge series (parameter 00060, statistic 00011) whose begin is on or before the daily mean begin date; proxy for a telemetry equipped, operations funded gage.",
+        "name": "has_instantaneous_discharge_series"
+      },
+      {
+        "availability": "constructed from point geometry and per-series begin and end, counting only series with begin at or before the decision date and end at or after it; restricted to series present in this extract, so pre-2001 neighbours are invisible",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?parameter_code=00060&data_type=Daily%20values&agency_code=USGS&begin=2001-01-01/2019-12-31&limit=1000&f=json",
+        "meaning": "Count of distinct other USGS locations with a daily mean discharge series active on the decision date within 50 km, computed by haversine from feature coordinates.",
+        "name": "nearby_active_gage_count_50km"
+      },
+      {
+        "availability": "constructed only from series that begin before 2013-01-01 and whose fifth anniversary preceded the decision date, with an end already recorded before it; scored eval and holdout labels never enter the rate",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/combined-metadata/items?parameter_code=00060&data_type=Daily%20values&agency_code=USGS&begin=2001-01-01/2019-12-31&limit=1000&f=json",
+        "meaning": "Share of training-window daily mean discharge series in the same hydrologic region whose fifth anniversary preceded the decision date and whose record had already ended before it.",
+        "name": "huc2_prior_termination_rate"
+      },
+      {
+        "availability": "derived from the begin date itself, so available exactly at the decision instant",
+        "evidence_url": "https://api.waterdata.usgs.gov/ogcapi/v1/collections/time-series-metadata/queryables?f=json",
+        "meaning": "Calendar month 1 to 12 in which the record opened, capturing installation timing.",
+        "name": "begin_month"
+      }
+    ],
+    "outcome_horizon": "Five years from the first day of record (calendar fifth anniversary; about 1,826 days).",
+    "population": "USGS monitoring locations (agency code USGS) in the 50 states, DC and territories, excluding ANSI state codes 81 to 86 and 90 to 98 used for Mexican and Canadian subdivisions, that carry a primary daily mean discharge series (parameter 00060, statistic 00003, data type daily values) whose begin falls between 2001-01-01 and 2019-12-31. One row per location, taking the earliest such series. A location is excluded when another 00060 daily mean series at the same location was active at any time in the 365 days before that begin. Series with a null end are dropped.",
+    "prediction_time": "The series begin date (first day of the daily mean discharge record), using only site metadata and facts about the record and the surrounding network at the moment it opens; no later observation of that same series is used as an input.",
+    "question": "When a new USGS daily mean streamflow record opens at a monitoring location, will that record still be active five years later?",
+    "simple_references": "Majority class; begin-year cohort base rate; state and district identity rate learned from training rows only; and a two-rule heuristic combining drainage area above the training median with the instantaneous series flag. Persistence of the entity's own prior outcome does not apply because each location contributes one row.",
+    "split_policy": "Chronological by `begin` date: train 2001-01-01 to 2012-12-31; eval 2013-01-01 to 2015-12-31; holdout 2016-01-01 to 2019-12-31. A 60-day embargo gap is dropped immediately after each boundary (2013-01-01 to 2013-03-01 and 2016-01-01 to 2016-03-01) so multi-site installation projects do not straddle splits. Rows are distinct locations, so no location appears in more than one split and no row's outcome window is another row's input.",
+    "target": "y = 1 if the time series' `end` timestamp (most recent observation in that series) is on or after the fifth anniversary of `begin`; y = 0 otherwise. Series with no `end` value are dropped, never imputed.",
+    "usefulness": "The label is a future state of the record rather than a field copied from the row; it separates gages that become multi-decade series from short-lived project or miscellaneous records, which matters for weighting records in trend and load models and for setting cooperator expectations at installation. Inputs mix basin size, program identity and network context, leaving honest baselines real headroom."
+  },
+  "title": "Five-year continuation of newly established USGS daily streamflow records",
+  "verdict": "ready"
+}

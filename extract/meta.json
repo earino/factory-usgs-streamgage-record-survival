@@ -1,0 +1,50 @@
+{
+  "name": "usgs-streamgage-record-survival",
+  "description": "When a new USGS daily mean streamflow record opens at a monitoring location, will that record still be active five years later?",
+  "target": "continued_5y",
+  "positive_label": 1,
+  "id_columns": [
+    "monitoring_location_id"
+  ],
+  "columns": [
+    "monitoring_location_id",
+    "begin",
+    "drainage_area",
+    "contributing_drainage_area",
+    "altitude",
+    "huc2_region",
+    "state_code",
+    "district_code",
+    "site_type_code",
+    "has_instantaneous_discharge_series",
+    "nearby_active_gage_count_50km",
+    "huc2_prior_termination_rate",
+    "begin_month",
+    "continued_5y"
+  ],
+  "rows": {
+    "train": 2438,
+    "eval": 448,
+    "holdout": 574
+  },
+  "positive_rate": {
+    "train": 0.7095980311730927,
+    "eval": 0.7522321428571429,
+    "holdout": 0.8101045296167247
+  },
+  "split": {
+    "eval": {
+      "end": "2016-01-01T00:00:00.000",
+      "start": "2013-03-01T00:00:00.000"
+    },
+    "holdout": {
+      "end": null,
+      "start": "2016-03-01T00:00:00.000"
+    },
+    "train": {
+      "end": "2013-01-01T00:00:00.000",
+      "start": "2001-01-01T00:00:00.000"
+    }
+  },
+  "split_description": "Chronological by `begin` date: train 2001-01-01 to 2012-12-31; eval 2013-01-01 to 2015-12-31; holdout 2016-01-01 to 2019-12-31. A 60-day embargo gap is dropped immediately after each boundary (2013-01-01 to 2013-03-01 and 2016-01-01 to 2016-03-01) so multi-site installation projects do not straddle splits. Rows are distinct locations, so no location appears in more than one split and no row's outcome window is another row's input."
+}
