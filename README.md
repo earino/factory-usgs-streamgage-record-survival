@@ -15,6 +15,14 @@ configs:
     path: extract/private/holdout.csv
 ---
 
+<!-- dataset-factory:links -->
+**Dataset Factory · v-75d63061fc7d7395**
+
+[Dataset website](https://earino.github.io/factory-usgs-streamgage-record-survival/versions/v-75d63061fc7d7395/) · [GitHub release](https://github.com/earino/factory-usgs-streamgage-record-survival/releases/tag/v-75d63061fc7d7395) · [Hugging Face](https://huggingface.co/datasets/earino/factory-usgs-streamgage-record-survival/tree/v-75d63061fc7d7395) · [Catalogue](https://earino.github.io/dataset-factory-site/)
+
+Artifact: be72de55eb39dc02a4465ad1a926ab93deb921b7c5431f21d9bbb166ded7998a
+<!-- /dataset-factory:links -->
+
 # Five-year continuation of newly established USGS daily streamflow records
 
 When a new USGS daily mean streamflow record opens at a monitoring location, will that record still be active five years later?
